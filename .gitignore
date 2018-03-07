@@ -135,6 +135,8 @@ DocProject/Help/*.hhp
 DocProject/Help/Html2
 DocProject/Help/html
 
+Controller/ContactFormSurfaceController.cs
+Web.config
 # Click-Once directory
 publish/
 
