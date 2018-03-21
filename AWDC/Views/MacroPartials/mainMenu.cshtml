@@ -12,39 +12,63 @@
 @if (selection.Length > 0)
 {
 
-  
+
     <ul class="nav navbar-nav">
-     
+
+
         @foreach (var item in selection)
         {
+
+
             if (item.Children.Where(x => x.IsVisible()).Count() > 0)
             {
+
+
                 <li class="dropdown">
-                    <a class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"   >@item.Name
-                    <span class="caret"> </span></a>
+                    <a class="dropdown-toggle nav-link" href="@item.Url">
+                        @item.Name
+                        <b class="caret"> </b>
+                    </a>
+
+
+
+
                     <ul class="dropdown-menu navbar-link">
                         @foreach (IPublishedContent subMenuItem in item.Children.Where(x => x.IsVisible()))
                         {
-                            if (subMenuItem.DocumentTypeAlias == "projectItem") 
-                            { 
-                                if ( umbraco.library.GetPreValueAsString(subMenuItem.GetPropertyValue<int>("projectStatus")) == "Completed")
+
+                            if (subMenuItem.DocumentTypeAlias == "projectItem")
+                            {
+
+                                var isProtected = umbraco.library.IsProtected(subMenuItem.Id, subMenuItem.Path);
+                                var loginAccess = umbraco.library.IsProtected(subMenuItem.Id, subMenuItem.Path) && umbraco.library.HasAccess(subMenuItem.Id, subMenuItem.Path);
+
+                                if (!isProtected || loginAccess)
                                 {
-                                //Show sub menu item
-                                 <li class="@(item.IsAncestorOrSelf(Model.Content) ? "current" : null)">
-                                        <a href="@subMenuItem.Url">@subMenuItem.Name</a>
+                                    <!-- if (umbraco.library.GetPreValueAsString(subMenuItem.GetPropertyValue<int>("projectStatus")) == "Completed")
+                                     { -->
+                                    //Show sub menu item
+                                    <li class="nav-item">
+                                        <a class="dropdown-item" href="@subMenuItem.Url">@subMenuItem.Name</a>
                                     </li>
+                                <!--}-->
                                 }
-                            }   
+                            }
                             else
+
                             {
                                 //Show sub menu item
-                                <li class="@(item.IsAncestorOrSelf(Model.Content) ? "current" : null)">
-                                        <a href="@subMenuItem.Url">@subMenuItem.Name</a>
-                                    </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" href="@subMenuItem.Url">@subMenuItem.Name</a>
+                                </li>
                             }
+
                         }
                     </ul>
+
                 </li>
+
+
 
             }
             else
@@ -54,10 +78,10 @@
                 </li>
             }
 
-        }
-      
-           
         
+        }
+
+
     </ul>
- 
+
 }

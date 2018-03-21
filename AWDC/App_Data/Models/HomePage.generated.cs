@@ -64,15 +64,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Macro in RTE
-		///</summary>
-		[ImplementPropertyType("macroInRTE")]
-		public IHtmlString MacroInRte
-		{
-			get { return this.GetPropertyValue<IHtmlString>("macroInRTE"); }
-		}
-
-		///<summary>
 		/// Main Content
 		///</summary>
 		[ImplementPropertyType("mainContent")]

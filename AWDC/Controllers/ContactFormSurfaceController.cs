@@ -40,7 +40,7 @@ namespace AWDC.Controllers
                 smtp.EnableSsl = true;
                 smtp.Host = "smtp.gmail.com";
                 smtp.Port = 587;
-                smtp.Credentials = new System.Net.NetworkCredential("email", "password");
+                smtp.Credentials = new System.Net.NetworkCredential("lisablaga@gmail.com", "");
                 smtp.EnableSsl = true;
                 // send mail
                 smtp.Send(message);

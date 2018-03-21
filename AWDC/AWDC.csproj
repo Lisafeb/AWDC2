@@ -262,6 +262,7 @@
       <DependentUpon>bootstrap.css</DependentUpon>
     </Content>
     <Content Include="Content\Site.css" />
+    <Content Include="css\style.css" />
     <Content Include="Media\1001\photo.jpg" />
     <Content Include="Media\1002\screenshot_3.jpg" />
     <Content Include="Media\1003\girl.png" />
@@ -369,6 +370,7 @@
     <Content Include="Content\bootstrap\bootstrap-reboot.scss" />
     <Content Include="Content\bootstrap\bootstrap-grid.scss" />
     <Content Include="compilerconfig.json" />
+    <Content Include=".gitignore" />
     <None Include="packages.config" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -402,6 +404,8 @@
     <Content Include="Views\Login.cshtml" />
     <Content Include="Views\Members.cshtml" />
     <Content Include="Views\Sitemap.cshtml" />
+    <Content Include="Views\MacroPartials\listProjects.cshtml" />
+    <Content Include="Views\MacroPartials\listArticles.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

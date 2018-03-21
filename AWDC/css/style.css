@@ -1,0 +1,67 @@
+ /* Set black background color, white text and some padding */
+footer {
+    background-color: #06CEBD;
+    color: white;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    font-size: 15;
+}
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'desc desc desc'
+    'img img img '
+    'vision people skills';
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+  .grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.container-fluid{
+	background-color: #06CEBD;
+}
+.navbar-default .navbar-nav>li>a,
+.navbar-default .navbar-brand
+{
+	color: white !important;
+}
+.vision, .people, .skills, .desc, .quote{
+    padding: 20px;
+    text-align: center;
+	background-color:#f4f4f4;
+    font-size: 15px;
+}
+
+
+
+#container{
+	
+  margin-bottom:115;
+}
+
+li.dropdown:hover > .dropdown-menu {
+    display:block;
+}
+
