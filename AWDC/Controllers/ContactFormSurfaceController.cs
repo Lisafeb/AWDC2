@@ -27,8 +27,9 @@ namespace AWDC.Controllers
                
                 return CurrentUmbracoPage();          
             }
+            // send email
             MailMessage message = new MailMessage();
-            message.To.Add("lisablaga@gmail.com");
+            message.To.Add("test.elisa.webdev@gmail.com");
             message.Subject = model.Subject;
             message.From = new MailAddress(model.Email, model.Name);
             message.Body = model.Message;
@@ -40,7 +41,7 @@ namespace AWDC.Controllers
                 smtp.EnableSsl = true;
                 smtp.Host = "smtp.gmail.com";
                 smtp.Port = 587;
-                smtp.Credentials = new System.Net.NetworkCredential("lisablaga@gmail.com", "");
+                smtp.Credentials = new System.Net.NetworkCredential("test.elisa.webdev@gmail.com", "testelisawebdev");
                 smtp.EnableSsl = true;
                 // send mail
                 smtp.Send(message);

@@ -4,58 +4,29 @@
 
 
 @{ var root = Model.Content.Site(); }
-
-
 @{ var selection = Model.Content.Site().Children.Where(x => x.IsVisible()).ToArray(); }
 
 
 @if (selection.Length > 0)
 {
-
-
     <ul class="nav navbar-nav">
-
-
         @foreach (var item in selection)
         {
-
-
             if (item.Children.Where(x => x.IsVisible()).Count() > 0)
             {
-
-
                 <li class="dropdown">
                     <a class="dropdown-toggle nav-link" href="@item.Url">
                         @item.Name
                         <b class="caret"> </b>
                     </a>
-
-
-
-
                     <ul class="dropdown-menu navbar-link">
                         @foreach (IPublishedContent subMenuItem in item.Children.Where(x => x.IsVisible()))
                         {
 
-                            if (subMenuItem.DocumentTypeAlias == "projectItem")
-                            {
+                            var isProtected = umbraco.library.IsProtected(subMenuItem.Id, subMenuItem.Path);
+                            var loginAccess = umbraco.library.IsProtected(subMenuItem.Id, subMenuItem.Path) && umbraco.library.HasAccess(subMenuItem.Id, subMenuItem.Path);
 
-                                var isProtected = umbraco.library.IsProtected(subMenuItem.Id, subMenuItem.Path);
-                                var loginAccess = umbraco.library.IsProtected(subMenuItem.Id, subMenuItem.Path) && umbraco.library.HasAccess(subMenuItem.Id, subMenuItem.Path);
-
-                                if (!isProtected || loginAccess)
-                                {
-                                    <!-- if (umbraco.library.GetPreValueAsString(subMenuItem.GetPropertyValue<int>("projectStatus")) == "Completed")
-                                     { -->
-                                    //Show sub menu item
-                                    <li class="nav-item">
-                                        <a class="dropdown-item" href="@subMenuItem.Url">@subMenuItem.Name</a>
-                                    </li>
-                                <!--}-->
-                                }
-                            }
-                            else
-
+                            if (!isProtected || loginAccess)
                             {
                                 //Show sub menu item
                                 <li class="nav-item">
@@ -65,11 +36,7 @@
 
                         }
                     </ul>
-
                 </li>
-
-
-
             }
             else
             {
@@ -77,11 +44,6 @@
                     <a href="@item.Url">@item.Name</a>
                 </li>
             }
-
-        
         }
-
-
     </ul>
-
 }

@@ -22,7 +22,7 @@
 
 @if (!Members.GetCurrentLoginStatus().IsLoggedIn)
 {
-
+    // Display login form
     using (Html.BeginUmbracoForm<UmbLoginController>("HandleLogin"))
     {
         <fieldset>

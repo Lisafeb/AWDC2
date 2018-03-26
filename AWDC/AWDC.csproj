@@ -262,6 +262,8 @@
       <DependentUpon>bootstrap.css</DependentUpon>
     </Content>
     <Content Include="Content\Site.css" />
+    <Content Include="css\carrousel.css" />
+    <Content Include="css\members.css" />
     <Content Include="css\style.css" />
     <Content Include="Media\1001\photo.jpg" />
     <Content Include="Media\1002\screenshot_3.jpg" />
